@@ -13,36 +13,30 @@ public class EscribeLeeFichAleatorio {
 			
 			int tamagnoNombreMax = 10;
 			int tamagnoRegistro = 4 + (tamagnoNombreMax*2) ;
-			Persona p1 = new Persona(21, "Juana");
-			Persona p2 = new Persona(23, "Pedro");
-			
-/*			ficheroAleatorio.writeChars("uno");
-			ficheroAleatorio.writeChars("dos");
-			ficheroAleatorio.writeChars("tres");
-*/			
+			Persona p1 = new Persona(21, "Juana     ");
+			Persona p2 = new Persona(23, "Pedro     ");
 			
 			long pos = 1;
 			ficheroAleatorio.seek(pos); // primera posicion
 			ficheroAleatorio.writeInt(p1.getEdad()); //primero escribo la edad
-			ficheroAleatorio.writeChars(p1.getNombre()); // después escribo el nombre
-			
+			ficheroAleatorio.writeChars(p1.getNombre()); // despuï¿½s escribo el nombre
 			
 			pos = pos + tamagnoRegistro;
 			ficheroAleatorio.seek(pos);
 			ficheroAleatorio.writeInt(p2.getEdad()); //primero escribo la edad
-			ficheroAleatorio.writeChars(p2.getNombre()); // después escribo el nombre
+			ficheroAleatorio.writeChars(p2.getNombre()); // despuï¿½s escribo el nombre
 			
 			System.out.println("He escrito");
 			
 			// leer...
 			pos = 1; // vuelvo al inicio
 			ficheroAleatorio.seek(pos);
-			System.out.println(ficheroAleatorio.readInt());
+			System.out.println("La edad es " + ficheroAleatorio.readInt());
 			char nombre[] = new char[tamagnoNombreMax];
 			for (int i = 0; i < tamagnoNombreMax; i++) {
 				nombre[i] = ficheroAleatorio.readChar();
 			}
-			System.out.println(nombre);
+			System.out.println("El nombre es " + new String(nombre));
 			
 			System.out.println("El curso se ha quedado en la posicion " + ficheroAleatorio.getFilePointer());
 						
