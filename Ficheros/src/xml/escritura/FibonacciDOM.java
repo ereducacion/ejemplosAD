@@ -16,7 +16,7 @@ public class FibonacciDOM
 
     try {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-      factory.setNamespaceAware(true);
+      //factory.setNamespaceAware(true);
       DocumentBuilder builder = factory.newDocumentBuilder();
       DOMImplementation impl = builder.getDOMImplementation();
       
@@ -27,7 +27,7 @@ public class FibonacciDOM
 
       Element root = doc.getDocumentElement();
 
-      for (int i = 0; i < 10; i++) {
+      for (int i = 0; i < 30; i++) {
         Text space = doc.createTextNode("\n  ");
         root.appendChild(space);
         Element number = doc.createElement("fibonacci");
@@ -41,7 +41,7 @@ public class FibonacciDOM
       Text lineBreak = doc.createTextNode("\n");
       root.appendChild(lineBreak);
 
-      // Serialización del documento
+      // Serializaciï¿½n del documento
       TransformerFactory xformFactory = TransformerFactory.newInstance();  
       Transformer idTransform = xformFactory.newTransformer();
       Source input = new DOMSource(doc);
